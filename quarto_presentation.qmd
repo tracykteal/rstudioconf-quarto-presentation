@@ -69,11 +69,9 @@ Visual edits
 
 ------------------------------------------------------------------------
 
-## Slide Title {background-video="https://www.loom.com/share/5b9b842a0f4649bfb1e1f6dfdf3a6ce9" background-video-loop="true" background-video-muted="true"}
+## Slide Title {background-video="images/visual-edits.mp4" background-video-loop="true" background-video-muted="true"}
 
 ---
-
-
 
 ::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
 Whiskers on kittens =\
