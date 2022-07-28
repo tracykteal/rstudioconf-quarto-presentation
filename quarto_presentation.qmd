@@ -1,13 +1,12 @@
 ---
-title: "These are a few of my favorite things (about Quarto presentations)"
+title: "These are a few of my favorite things <br> (about Quarto presentations)"
 author: "Tracy K Teal"
-editor: visual
 format: 
   revealjs:
    theme: default 
 ---
 
-::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+::: {style="margin-top: 20px; font-size: 2em; color: #75AADB;"}
 ![image credit: leverage edu](images/science-leverageedu.jpeg)
 :::
 
@@ -39,7 +38,7 @@ Quarto: Making presentations fun ~~again~~ for the first time
 
 ------------------------------------------------------------------------
 
-![Sound of Music](images/sound-of-music.jpeg)
+![](images/sound-of-music.jpeg)
 
 ------------------------------------------------------------------------
 
@@ -69,9 +68,9 @@ Visual edits
 
 ------------------------------------------------------------------------
 
-## Slide Title {background-video="images/visual-edits.mp4" background-video-loop="true" background-video-muted="true"}
+## {background-video="images/visual-edits.mp4" background-video-loop="true" background-video-muted="true"}
 
----
+------------------------------------------------------------------------
 
 ::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
 Whiskers on kittens =\
@@ -82,71 +81,57 @@ Columns and tables
 
 ## Columns
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="60%"}
-
 **Other favorite things**
 
 -   Ice cream
 -   R
 -   Python
-
 :::
 
 ::: {.column width="40%"}
-
 **Least favorite things**
 
 -   Banana flavor
 -   Slamming doors
 -   Nails on chalkboards
 -   Locking keys in car
-
 :::
-
-::::
+:::
 
 ------------------------------------------------------------------------
 
 ## Columns
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="40%"}
-
 **Other favorite things**
 
 -   Ice cream
 -   R
 -   Python
-
 :::
 
 ::: {.column width="30%"}
-
 **Least favorite things**
 
 -   Banana flavor
 -   Slamming doors
 -   Nails on chalkboards
 -   Locking keys in car
-
 :::
 
 ::: {.column width="30%"}
-
 ![](images/ice-cream.jpeg)
-
 :::
-
-::::
+:::
 
 ------------------------------------------------------------------------
 
 ### Code
 
-``` markdown
+``` {.markdown}
 :::: {.columns}
 
 ::: {.column width="60%"}
@@ -205,8 +190,12 @@ knitr::kable(top_ic, "simple", align = "lccrr", caption = "Favorite ice creams")
 ```{r, echo=FALSE}
 library(gt)
 library(scales)
+
+ic_palette <- scales::col_numeric(palette = c("lightgreen", "#228b22"), domain = top_ic$AveStar)
+
 gt_ic <- gt(top_ic)
 gt_ic <- gt_ic %>%
+  data_color(AveStar, colors = ic_palette) %>% 
   tab_header(
     title = "Favorite ice creams",
     subtitle = "by website reviews"
@@ -259,7 +248,7 @@ Speaker notes go here.
 
 ------------------------------------------------------------------------
 
-``` {.markdown example-link="/docs/presentations/revealjs/examples/speaker-notes.qmd"}
+``` {.markdown}
 ## Slide with speaker notes
 
 Slide content
@@ -284,7 +273,7 @@ Code first keeps things stable
 
 ------------------------------------------------------------------------
 
-``` markdown
+``` {.markdown}
 ggplot(data = ave_ic, mapping = aes(x = NumReviews, y = AveStar)) +
   geom_point() +
   ggtitle("Relationship between number of reviews and rating") +
@@ -307,18 +296,20 @@ Brown paper packages =\
 Themes to delight in
 :::
 
----
+------------------------------------------------------------------------
 
 ### Themes to delight in
 
-This is a new theme!
-
 Lists
 
-* Item 1
-* Item 2
+-   Item 1
+-   Item 2
 
 ------------------------------------------------------------------------
+
+## {background-video="images/share.mp4" background-video-loop="true" background-video-muted="true"}
+
+---
 
 ::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
 Tied up with string =\
@@ -352,5 +343,3 @@ Learn more
 
 -   Documentation on Quarto presentations
 -   This slide deck
-
-
