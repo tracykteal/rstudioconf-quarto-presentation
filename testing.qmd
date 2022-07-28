@@ -1,0 +1,104 @@
+---
+title: "These are a few of my favorite things (about Quarto presentations)"
+author: "Tracy K Teal"
+editor: visual
+format: 
+  revealjs:
+   theme: solarized  
+---
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+![image credit: leverage edu](images/science-leverageedu.jpeg)
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 1.5em; color: #75AADB;"}
+Sometimes you just need words\
+- Lewis Kirvan
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 1.5em; color: #75AADB;"}
+"Tracy's love language is Google docs."\
+- Hadley Wickham
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Quarto: Making presentations fun again
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Quarto: Making presentations fun ~~again~~ for the first time
+:::
+
+------------------------------------------------------------------------
+
+![Sound of Music](images/sound-of-music.jpeg)
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 75px; font-size: 1.5em; color: #75AADB;"}
+Raindrops on roses and\
+Whiskers on kittens\
+Bright coppper kettles and\
+Warm woolen mittens\
+Brown paper packages tied up with string\
+These are a few of my favorite things
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Raindrops on roses =\
+Visual edits
+:::
+
+------------------------------------------------------------------------
+
+### Visualizing my edits
+
+-   list item 1
+-   list item 2
+-   list item 3
+
+---
+
+# Video
+
+
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Whiskers on kittens =\
+Columns and tables
+:::
+
+------------------------------------------------------------------------
+
+## Columns
+
+:::: {.columns}
+::: {.column width="60%"}
+**Other favorite things**
+
+-   Ice cream
+-   R
+-   Python
+:::
+
+::: {.column width="40%"}
+**Least favorite things**
+
+-   Banana flavor
+-   Slamming doors
+-   Nails on chalkboards
+-   Locking keys in car
+:::
+::::

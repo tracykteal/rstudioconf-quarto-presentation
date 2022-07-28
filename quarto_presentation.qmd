@@ -4,7 +4,7 @@ author: "Tracy K Teal"
 editor: visual
 format: 
   revealjs:
-   theme: solarized  
+   theme: default 
 ---
 
 ::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
@@ -67,11 +67,13 @@ Visual edits
 -   list item 2
 -   list item 3
 
+------------------------------------------------------------------------
+
+## Slide Title {background-video="https://www.loom.com/share/5b9b842a0f4649bfb1e1f6dfdf3a6ce9" background-video-loop="true" background-video-muted="true"}
+
 ---
 
-## Add video
 
-------------------------------------------------------------------------
 
 ::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
 Whiskers on kittens =\
@@ -82,51 +84,65 @@ Columns and tables
 
 ## Columns
 
-::: columns
+:::: {.columns}
+
 ::: {.column width="60%"}
+
 **Other favorite things**
 
 -   Ice cream
 -   R
 -   Python
+
 :::
 
 ::: {.column width="40%"}
+
 **Least favorite things**
 
 -   Banana flavor
 -   Slamming doors
 -   Nails on chalkboards
 -   Locking keys in car
+
 :::
-:::
+
+::::
 
 ------------------------------------------------------------------------
 
 ## Columns
 
-::: columns
+:::: {.columns}
+
 ::: {.column width="40%"}
+
 **Other favorite things**
 
 -   Ice cream
 -   R
 -   Python
+
 :::
 
 ::: {.column width="30%"}
+
 **Least favorite things**
 
 -   Banana flavor
 -   Slamming doors
 -   Nails on chalkboards
 -   Locking keys in car
+
 :::
 
 ::: {.column width="30%"}
+
 ![](images/ice-cream.jpeg)
+
 :::
-:::
+
+::::
 
 ------------------------------------------------------------------------
 
@@ -179,7 +195,6 @@ ave_ic <- ic_complete %>%
   group_by(Name = name) %>%
   summarise(AveStar = round(mean(stars, na.rm=TRUE), digits=2), NumReviews = n()) %>%
   arrange(desc(AveStar)) 
-
 
 top_ic <- head(ave_ic, n=5)
 
