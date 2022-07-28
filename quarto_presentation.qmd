@@ -1,0 +1,343 @@
+---
+title: "These are a few of my favorite things (about Quarto presentations)"
+author: "Tracy K Teal"
+editor: visual
+format: 
+  revealjs:
+   theme: solarized  
+---
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+![image credit: leverage edu](images/science-leverageedu.jpeg)
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 1.5em; color: #75AADB;"}
+Sometimes you just need words\
+- Lewis Kirvan
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 1.5em; color: #75AADB;"}
+"Tracy's love language is Google docs."\
+- Hadley Wickham
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Quarto: Making presentations fun again
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Quarto: Making presentations fun ~~again~~ for the first time
+:::
+
+------------------------------------------------------------------------
+
+![Sound of Music](images/sound-of-music.jpeg)
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 75px; font-size: 1.5em; color: #75AADB;"}
+Raindrops on roses and\
+Whiskers on kittens\
+Bright coppper kettles and\
+Warm woolen mittens\
+Brown paper packages tied up with string\
+These are a few of my favorite things
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Raindrops on roses =\
+Visual edits
+:::
+
+------------------------------------------------------------------------
+
+### Visualizing my edits
+
+-   list item 1
+-   list item 2
+-   list item 3
+
+---
+
+## Add video
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Whiskers on kittens =\
+Columns and tables
+:::
+
+------------------------------------------------------------------------
+
+## Columns
+
+::: columns
+::: {.column width="60%"}
+**Other favorite things**
+
+-   Ice cream
+-   R
+-   Python
+:::
+
+::: {.column width="40%"}
+**Least favorite things**
+
+-   Banana flavor
+-   Slamming doors
+-   Nails on chalkboards
+-   Locking keys in car
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Columns
+
+::: columns
+::: {.column width="40%"}
+**Other favorite things**
+
+-   Ice cream
+-   R
+-   Python
+:::
+
+::: {.column width="30%"}
+**Least favorite things**
+
+-   Banana flavor
+-   Slamming doors
+-   Nails on chalkboards
+-   Locking keys in car
+:::
+
+::: {.column width="30%"}
+![](images/ice-cream.jpeg)
+:::
+:::
+
+------------------------------------------------------------------------
+
+### Code
+
+``` markdown
+:::: {.columns}
+
+::: {.column width="60%"}
+**Other favorite things**
+
+* Ice cream
+* R
+* Python
+:::
+
+::: {.column width="40%"}
+**Least favorite things**
+
+* Banana flavor
+* Slamming doors
+* Nails on chalkboards
+* Locking keys in car
+:::
+
+::::
+```
+
+------------------------------------------------------------------------
+
+### Tables
+
+```{r, echo=FALSE}
+library(tidyverse)
+
+ic_data <- read_csv("data/combined/reviews.csv")
+ic_products <- read_csv("data/combined/products.csv")
+ic_names <- select(ic_products, key, brand, name)
+
+ic_data <- ic_data %>% inner_join(ic_names, by="key")
+
+ic_data_filter <- ic_data %>%
+  count(key) %>%
+  filter(n > 50)
+
+ic_complete <- ic_data %>%
+  filter(key %in% ic_data_filter$key)
+
+ave_ic <- ic_complete %>%
+  group_by(Name = name) %>%
+  summarise(AveStar = round(mean(stars, na.rm=TRUE), digits=2), NumReviews = n()) %>%
+  arrange(desc(AveStar)) 
+
+
+top_ic <- head(ave_ic, n=5)
+
+knitr::kable(top_ic, "simple", align = "lccrr", caption = "Favorite ice creams")
+
+```
+
+------------------------------------------------------------------------
+
+```{r, echo=FALSE}
+library(gt)
+library(scales)
+gt_ic <- gt(top_ic)
+gt_ic <- gt_ic %>%
+  tab_header(
+    title = "Favorite ice creams",
+    subtitle = "by website reviews"
+  ) %>%
+     tab_style(
+     locations = cells_column_labels(columns = everything()),
+     style     = list(
+       #Give a thick border below
+       cell_borders(sides = "bottom", weight = px(3)),
+       #Make text bold
+       cell_text(weight = "bold")
+     )
+   ) %>%
+  tab_source_note(
+    source_note = "Source: Kaggle ice cream dataset." 
+  ) %>%
+  tab_options(
+    table.font.size = "24pt",
+    table.width = "80%"
+  )
+
+
+#min_ic <- min(top_ic$ave_star)
+#max_ic <- max(top_ic$ave_star)
+#ic_palette <- col_numeric(c("#FEF0D9", "#990000"), domain = c(min_ic, max_ic), alpha = 0.75)
+
+#gt_ic <- gt_ic %>% 
+#    data_color(columns = c(ave_star),
+#               colors = ic_palette)
+
+gt_ic
+```
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Bright copper kettles =\
+Notes for the speaker
+:::
+
+------------------------------------------------------------------------
+
+## Slide with speaker notes
+
+Slide content
+
+::: notes
+Speaker notes go here.
+:::
+
+------------------------------------------------------------------------
+
+``` {.markdown example-link="/docs/presentations/revealjs/examples/speaker-notes.qmd"}
+## Slide with speaker notes
+
+Slide content
+
+::: {.notes}
+Speaker notes go here.
+:::
+```
+
+------------------------------------------------------------------------
+
+### Speaker view
+
+![](images/speaker-notes.png)
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Warm woolen mittens =\
+Code first keeps things stable
+:::
+
+------------------------------------------------------------------------
+
+``` markdown
+ggplot(data = ave_ic, mapping = aes(x = NumReviews, y = AveStar)) +
+  geom_point() +
+  ggtitle("Relationship between number of reviews and rating") +
+  xlab("Number of reviews") + ylab("Average star rating") +
+  theme(text=element_text(size = 16))
+```
+
+```{r}
+ggplot(data = ave_ic, mapping = aes(x = NumReviews, y = AveStar)) +
+  geom_point() +
+  ggtitle("Relationship between number of reviews and rating") +
+  xlab("Number of reviews") + ylab("Average star rating") +
+  theme(text=element_text(size = 16))
+```
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Brown paper packages =\
+Themes to delight in
+:::
+
+---
+
+### Themes to delight in
+
+This is a new theme!
+
+Lists
+
+* Item 1
+* Item 2
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 150px; font-size: 2em; color: #75AADB;"}
+Tied up with string =\
+Formats to share
+:::
+
+------------------------------------------------------------------------
+
+### Formats to share
+
+-   HTML
+-   PDF
+-   Powerpoint!
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 75px; font-size: 1.5em; color: #75AADB;"}
+Visual edits\
+Columns and tables\
+Notes for the speaker\
+Code first keeps slides stable\
+Themes to delight in and formats to share\
+These are a few of my favorite things
+:::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 75px; font-size: 1.5em; color: #75AADB;"}
+Learn more
+:::
+
+-   Documentation on Quarto presentations
+-   This slide deck
+
+
