@@ -1,6 +1,6 @@
 ---
 title: "These are a few of my favorite things <br> (about Quarto presentations)"
-author: "Tracy K Teal"
+author: "Tracy K. Teal"
 format: 
   revealjs:
    theme: default 
@@ -341,5 +341,11 @@ These are a few of my favorite things
 Learn more
 :::
 
--   Documentation on Quarto presentations
--   This slide deck
+-   Documentation on Quarto presentations: https://quarto.org/docs/presentations/
+-   This slide deck: <br> https://github.com/tracykteal/rstudioconf-quarto-presentation
+
+**Subscribe to the glimpse() newsletter!**  
+*Get a glimpse() into our tools and how to use them.*  
+https://rstd.io/glimpse-newsletter
+
+
